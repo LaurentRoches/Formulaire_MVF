@@ -1,0 +1,8 @@
+fieldset {
+ background-image: url('./src/medias/fond.jpg');
+ background-size: cover;
+  background-repeat: no-repeat;
+  color: yellow;
+  text-shadow: 1px 1px black;
+  text-align: center
+}

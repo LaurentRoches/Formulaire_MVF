@@ -84,11 +84,11 @@
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfantsOui"><label for="enfantsOui">Oui</label>
+      <input type="checkbox" name="enfantsOui" id="enfantsOui"><label for="enfantsOui">Oui</label>
       <input type="checkbox" name="enfantsNon"><label for="enfantsNon">Non</label>
 
       <!-- Si oui, afficher : -->
-      <section>
+      <section id="demonsPresent">
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
         <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
@@ -115,6 +115,10 @@
       <input type="text" name="telephone" id="telephone" required>
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale" required>
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" required>
+      <label for="password2">Vérifier le Mot de passe :</label>
+      <input type="password" id="password2" name="password2" required>
 
       <input type="submit" name="soumission" class="bouton" value="Réserver">
     </fieldset>

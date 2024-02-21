@@ -1,3 +1,7 @@
+section{
+    display: none;
+}
+
 fieldset {
  background-image: url('./src/medias/fond.jpg');
  background-size: cover;
@@ -6,3 +10,4 @@ fieldset {
   text-shadow: 1px 1px black;
   text-align: center
 }
+

@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,14 +19,14 @@
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
       <h3>Réservation(s) en tarif réduit</h3>
-      <input type="checkbox" name="tarifReduit" id="tarifReduit">
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
+      <input type="checkbox" name="tarifReduit" id="tarifReduit">
 
       <h3>Choisissez votre formule :</h3>
-      <input type="checkbox" name="passSelection" id="pass1jour">
       <label for="pass1jour">Pass 1 jour : 40€</label>
-      <input type="checkbox" name="passSelection" id="pass1jourReduit" style="display:none;">
+      <input type="checkbox" name="passSelection" id="pass1jour">
       <label for="pass1jour" style="display:none;">Pass 1 jour : 25€</label>
+      <input type="checkbox" name="passSelection" id="pass1jourReduit" style="display:none;">
 
       <!-- Si case cochée, afficher le choix du jour -->
       <section id="pass1jourDate">
@@ -35,10 +38,10 @@
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
-      <input type="checkbox" name="passSelection" id="pass2jours">
       <label for="pass2jours">Pass 2 jours : 70€</label>
-      <input type="checkbox" name="passSelection" id="pass2joursReduit" style="display:none;">
+      <input type="checkbox" name="passSelection" id="pass2jours">
       <label for="pass2jours" style="display:none;">Pass 2 jours : 50€</label>
+      <input type="checkbox" name="passSelection" id="pass2joursReduit" style="display:none;">
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate">
@@ -48,10 +51,10 @@
         <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
-      <input type="checkbox" name="passSelection" id="pass3jours">
       <label for="pass3jours">Pass 3 jours : 100€</label>
-      <input type="checkbox" name="passSelection" id="pass3joursReduit" style="display:none;">
+      <input type="checkbox" name="passSelection" id="pass3jours">
       <label for="pass3jours" style="display:none;">Pass 3 jours : 65€</label>
+      <input type="checkbox" name="passSelection" id="pass3joursReduit" style="display:none;">
 
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 

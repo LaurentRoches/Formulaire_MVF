@@ -11,17 +11,17 @@ function suivant(id) {
 
 let tarifReduit = document.getElementById('tarifReduit');
 let pass1jour = document.getElementById('pass1jour');
-let pass1jourLabel = pass1jour.nextElementSibling;
+let pass1jourLabel = pass1jour.previousElementSibling;
 let pass2jours = document.getElementById('pass2jours');
-let pass2joursLabel = pass2jours.nextElementSibling;
+let pass2joursLabel = pass2jours.previousElementSibling;
 let pass3jours = document.getElementById('pass3jours');
-let pass3joursLabel = pass3jours.nextElementSibling;
+let pass3joursLabel = pass3jours.previousElementSibling;
 let pass1jourReduit = document.getElementById('pass1jourReduit');
-let pass1jourReduitLabel = pass1jourReduit.nextElementSibling;
+let pass1jourReduitLabel = pass1jourReduit.previousElementSibling;
 let pass2joursReduit = document.getElementById('pass2joursReduit');
-let pass2joursReduitLabel = pass2joursReduit.nextElementSibling;
+let pass2joursReduitLabel = pass2joursReduit.previousElementSibling;
 let pass3joursReduit = document.getElementById('pass3joursReduit');
-let pass3joursReduitLabel = pass3joursReduit.nextElementSibling;
+let pass3joursReduitLabel = pass3joursReduit.previousElementSibling;
 
 
 tarifReduit.addEventListener('change', ()=>{

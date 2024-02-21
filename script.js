@@ -90,6 +90,21 @@ pass2joursReduit.addEventListener('change', ()=>{
     }
 })
 
+//Les doubles journées
+let choixJour12 = document.getElementById('choixJour12');
+let choixJour23 = document.getElementById('choixJour23');
+
+choixJour12.addEventListener('change', ()=>{
+    if(choixJour12.checked){
+        choixJour23.checked=false;
+    }
+})
+choixJour23.addEventListener('change', ()=>{
+    if(choixJour23.checked){
+        choixJour12.checked=false;
+    }
+})
+
     // Deuxième section:
 //Les tentes
 let tenteNuit1 = document.getElementById('tenteNuit1');

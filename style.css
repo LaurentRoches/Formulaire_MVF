@@ -1,13 +1,24 @@
 section{
     display: none;
 }
-
+legend{
+  border: 1px solid black;
+  background-color: black;
+}
 fieldset {
- background-image: url('./src/medias/fond.jpg');
- background-size: cover;
+  background-image: url('./src/medias/fond.jpg');
+  background-size: cover;
+  background-position-y: 50%;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: yellow;
   text-shadow: 1px 1px black;
-  text-align: center
+  text-align: center;
+}
+fieldset *{
+  margin: 5px 10px;
 }
 

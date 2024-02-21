@@ -1,7 +1,6 @@
-<?php
-?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +8,7 @@
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
 </head>
+
 <body>
   <form action="traitement.php" id="inscription" method="POST">
     <fieldset id="reservation" >
@@ -56,6 +56,7 @@
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
       <button class="bouton" onclick="suivant('options')">Suivant</button>
+
     </fieldset>
     <fieldset id="options" style="display:none;">
       <legend>Options</legend>
@@ -91,27 +92,30 @@
         <p>*Dans la limite des stocks disponibles.</p>
       </section>
 
+
       <h3>Profitez de descentes en luge d'été à tarifs avantageux ! (5€)</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
+
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
       <button class="bouton" onclick="suivant('coordonnees')">Suivant</button>
     </fieldset>
     <fieldset id="coordonnees" style="display:none;">
       <legend>Coordonnées</legend>
-        <label for="nom">Nom :</label>
-        <input type="text" name="nom" id="nom" required>
-        <label for="prenom">Prénom :</label>
-        <input type="text" name="prenom" id="prenom" required>
-        <label for="email">Email :</label>
-        <input type="email" name="email" id="email" required>
-        <label for="telephone">Téléphone :</label>
-        <input type="text" name="telephone" id="telephone" required>
-        <label for="adressePostale">Adresse Postale :</label>
-        <input type="text" name="adressePostale" id="adressePostale" required>
+      <label for="nom">Nom :</label>
+      <input type="text" name="nom" id="nom" required>
+      <label for="prenom">Prénom :</label>
+      <input type="text" name="prenom" id="prenom" required>
+      <label for="email">Email :</label>
+      <input type="email" name="email" id="email" required>
+      <label for="telephone">Téléphone :</label>
+      <input type="text" name="telephone" id="telephone" required>
+      <label for="adressePostale">Adresse Postale :</label>
+      <input type="text" name="adressePostale" id="adressePostale" required>
 
-        <input type="submit" name="soumission" class="bouton" value="Réserver">
+      <input type="submit" name="soumission" class="bouton" value="Réserver">
     </fieldset>
   </form>
 </body>
+
 </html>

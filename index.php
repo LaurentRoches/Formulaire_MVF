@@ -6,10 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulaire de réservation Music Vercos Festival</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <form action="traitement.php" id="inscription" method="POST">
-    <fieldset id="reservation">
+    <fieldset id="reservation" >
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
@@ -20,6 +22,8 @@
       <h3>Choisissez votre formule :</h3>
       <input type="checkbox" name="passSelection" id="pass1jour">
       <label for="pass1jour">Pass 1 jour : 40€</label>
+      <input type="checkbox" name="passSelection" id="pass1jourReduit" style="display:none;">
+      <label for="pass1jour" style="display:none;">Pass 1 jour : 25€</label>
 
       <!-- Si case cochée, afficher le choix du jour -->
       <section id="pass1jourDate">
@@ -33,32 +37,27 @@
 
       <input type="checkbox" name="passSelection" id="pass2jours">
       <label for="pass2jours">Pass 2 jours : 70€</label>
+      <input type="checkbox" name="passSelection" id="pass2joursReduit" style="display:none;">
+      <label for="pass2jours" style="display:none;">Pass 2 jours : 50€</label>
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate">
         <input type="checkbox" name="passSelection" id="choixJour12">
-        <label for="choixJour1">Pass pour deux journées du 01/07 au 02/07</label>
+        <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
         <input type="checkbox" name="passSelection" id="choixJour23">
-        <label for="choixJour2">Pass pour deux journées du 02/07 au 03/07</label>
+        <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
       <input type="checkbox" name="passSelection" id="pass3jours">
       <label for="pass3jours">Pass 3 jours : 100€</label>
-
-
-      <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
-      <input type="checkbox" name="passSelection" id="pass1jour">
-      <label for="pass1jour">Pass 1 jour : 25€</label>
-      <input type="checkbox" name="passSelection" id="pass2jours">
-      <label for="pass2jours">Pass 2 jours : 50€</label>
-      <input type="checkbox" name="passSelection" id="pass3jours">
-      <label for="pass3jours">Pass 3 jours : 65€</label>
+      <input type="checkbox" name="passSelection" id="pass3joursReduit" style="display:none;">
+      <label for="pass3jours" style="display:none;">Pass 3 jours : 65€</label>
 
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
-      <p class="bouton" onclick="suivant('option')">Suivant</p>
+      <button class="bouton" onclick="suivant('options')">Suivant</button>
     </fieldset>
-    <fieldset id="options">
+    <fieldset id="options" style="display:none;">
       <legend>Options</legend>
       <h3>Réserver un emplacement de tente : </h3>
       <input type="checkbox" id="tenteNuit1" name="tenteNuit1">
@@ -92,13 +91,13 @@
         <p>*Dans la limite des stocks disponibles.</p>
       </section>
 
-      <h3>Profitez de descentes en luge d'été à tarifs avantageux !</h3>
+      <h3>Profitez de descentes en luge d'été à tarifs avantageux ! (5€)</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-      <p class="bouton" onclick="suivant('coordonnees')">Suivant</p>
+      <button class="bouton" onclick="suivant('coordonnees')">Suivant</button>
     </fieldset>
-    <fieldset id="coordonnees">
+    <fieldset id="coordonnees" style="display:none;">
       <legend>Coordonnées</legend>
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" required>

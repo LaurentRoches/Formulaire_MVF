@@ -36,7 +36,7 @@ class User {
         $Database = new Database();
         $utilisateurs = $Database->getAllUtilisateurs();
         $IDs = [];
-        foreach($utilisaterus as $utilisateurs) {
+        foreach($utilisateurs as $utilisateurs) {
             $IDs [] = $utilisateurs->getId();
         }
         $i = 1;
@@ -93,7 +93,7 @@ class User {
     public function getAdresse(): string {
         return $this -> _adresse;
     }
-    public function setAdresse (string$adresse):void {
+    public function setAdresse (string $adresse):void {
         $this -> _adresse = $adresse;
     }
     public function  getObjectToArray(): array {

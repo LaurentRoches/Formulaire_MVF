@@ -14,12 +14,14 @@ session_start();
 </head>
 
 <body>
+
   <form action="./src/traitement.php" id="inscription" method="POST">
     <fieldset id="reservation" >
       <div class="connexion">
         <h2>Déjà réservé? Connectez-vous! :</h2>
         <a href="./confirmation.php">Cliquez ici</a>
       </div>
+
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
@@ -28,8 +30,10 @@ session_start();
       <input type="checkbox" name="tarifReduit" id="tarifReduit">
 
       <h3>Choisissez votre formule :</h3>
+
       <label for="pass1jour">Pass 1 jour : 40€</label>
       <input type="checkbox" name="pass1jour" id="pass1jour">
+
       <label for="pass1jour" style="display:none;">Pass 1 jour : 25€</label>
       <input type="checkbox" name="pass1jourReduit" id="pass1jourReduit" style="display:none;">
 
@@ -43,8 +47,10 @@ session_start();
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
+
       <label for="pass2jours">Pass 2 jours : 70€</label>
       <input type="checkbox" name="pass2jours" id="pass2jours">
+
       <label for="pass2jours" style="display:none;">Pass 2 jours : 50€</label>
       <input type="checkbox" name="pass2joursReduit" id="pass2joursReduit" style="display:none;">
 
@@ -56,8 +62,10 @@ session_start();
         <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
+
       <label for="pass3jours">Pass 3 jours : 100€</label>
       <input type="checkbox" name="pass3jours" id="pass3jours">
+
       <label for="pass3jours" style="display:none;">Pass 3 jours : 65€</label>
       <input type="checkbox" name="pass3joursReduit" id="pass3joursReduit" style="display:none;">
 

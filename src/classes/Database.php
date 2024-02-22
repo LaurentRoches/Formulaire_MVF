@@ -1,17 +1,25 @@
 <?php
 
 final class Database{
-    private $_DB;
+    private $_UserDB;
+    private $_ReservationDB;
 
     //Dire à la Database de se lier au fichier csv
     public function __construct(){
-        $this-> _DB = __DIR__."../csv/utilisateurs.csv";
+        $this-> _UserDB = __DIR__."../csv/utilisateurs.csv";
+        $this-> _ReservationDB = __DIR__."../csv/reservations.csv";
     }
 
-    //Sauvegarder utilisateur dans BDD:
+    /**
+     * Sauvegarder utilisateur dans BDD
+     *
+     * @param   User  $user    Objet de la classe User
+     *
+     * @return  bool         True si réussi, False sinon
+     */
     public function saveUser($user) {
         //Lire ET écrire la BDD:
-        $acces = fopen($this->_DB, 'ab');
+        $acces = fopen($this->_UserDB, 'ab');
         //Définit une variable pour savoir si l'écriture à fonctionner
         //Puis écrit la ligne dans le csv
         $ecris = fputcsv($acces, $user->getObjectToArray());
@@ -21,10 +29,33 @@ final class Database{
         return $ecris;
     }
 
-    //Récupérer tous les utilisateurs sous un tableau:
+    /**
+     * Sauvegarder la réservation dans la BDD
+     *
+     * @param   Reservation  $reservation  objet de la classe Reservation
+     *
+     * @return  bool                TRUE si réussis, FALSE sinon
+     */
+    public function saveReservation($reservation){
+        //Lire ET écrire la BDD:
+        $acces = fopen($this->_ReservationDB, 'ab');
+        //Définit une variable pour savoir si l'écriture à fonctionner
+        //Puis écrit la ligne dans le csv
+        $ecris = fputcsv($acces, $reservation->getObjectToArray());
+        //Fermer la lecture de la BDD
+        fclose($acces);
+        // Recupère la variable d'écriture:
+        return $ecris;
+    }
+
+    /**
+     * Récupérer tous les utilisateurs sous un tableau:
+     *
+     * @return  array  un tableau de tous les utilisateurs
+     */
     public function getAllUtilisateurs() {
         //lire la BDD:
-        $acces = fopen($this->_DB, 'r');
+        $acces = fopen($this->_UserDB, 'r');
         //on créer notre tableau pour y stocker les valeurs:
         $utilisateurs = [];
         //on va lire les lignes de la BDD tant qu'il en existe:
@@ -38,10 +69,16 @@ final class Database{
         return $utilisateurs;
     }
 
-    //Trouver un utilisateur par son mail:
+    /**
+     * Trouver un utilisateur par son mail:
+     *
+     * @param   string  $mail  mail donné
+     *
+     * @return  bool | string         donne le user ou False
+     */
     public function getUtilisateurByMail($mail) {
         //lire la BDD:
-        $acces = fopen($this->_DB, 'r');
+        $acces = fopen($this->_UserDB, 'r');
         //on va lire les lignes tant qu'il en existe:
         while (($user = fgetcsv($acces, 1000)) !== FALSE){
             // Si l'uilisateur a un mail:
@@ -62,10 +99,16 @@ final class Database{
         return $user;
     }
 
-    //Trouver un utilisateur par son id:
+    /**
+     * Trouver un utilisateur par son id:
+     *
+     * @param   int  $id  id donné
+     *
+     * @return  bool | int       donne le user ou False
+     */
     public function getUtilisateurById($id) {
         //lire la BDD:
-        $acces = fopen($this->_DB, 'r');
+        $acces = fopen($this->_UserDB, 'r');
         //on va lire les lignes tant qu'il en existe:
         while (($user = fgetcsv($acces, 1000)) !== FALSE){
             // Si l'uilisateur a un id:

@@ -96,6 +96,7 @@ class User {
     public function setAdresse (string $adresse):void {
         $this -> _adresse = $adresse;
     }
+    //Pour enregistrer sous forme de tableau:
     public function  getObjectToArray(): array {
         return [
             'nom' => $this -> getNom(),

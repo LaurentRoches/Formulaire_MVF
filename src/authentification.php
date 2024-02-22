@@ -2,6 +2,7 @@
 session_start();
 require './src/classes/Database.php';
 require './classes/User.php';
+$Database = new Database();
 
 //Si les champs existent et ne sont pas vide:
 if (isset($_POST['mail']) && !empty($_POST['mail']) && isset($_POST['password']) && !empty($_POST['password'])){
@@ -22,6 +23,7 @@ if (isset($_POST['mail']) && !empty($_POST['mail']) && isset($_POST['password'])
     }
 } else {
     //mettre une erreur générale
+    header('location: ../confirmation.php?erreur');
 }
 
 

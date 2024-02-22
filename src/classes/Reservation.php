@@ -11,8 +11,10 @@ class Reservation {
     private $_casques;
     private $_luges;
     private $_total;
+    private $_mail;
+    private $_id;
 
-    public function __construct($reduit, $pass, $journee, $nuit, $enfants, $casques, $luges, $total) {
+    public function __construct($reduit, $pass, $journee, $nuit, $enfants, $casques, $luges, $total, $mail, $id = "à créer") {
         $this -> setReduit($reduit);
         $this -> setPass($pass);
         $this -> setjournee($journee);
@@ -21,6 +23,8 @@ class Reservation {
         $this -> setcasques($casques);
         $this -> setluges($luges);
         $this -> settotal($total);
+        $this -> setMail($mail);
+        $this -> setId($id);
     }
 
     public function getReduit() {
@@ -79,6 +83,42 @@ class Reservation {
         $this -> _total = $total;
     }
 
+    public function getMail() {
+        return $this -> _mail;
+    }
+    public function setMail ($mail) {
+        $this -> _mail = $mail;
+    }
+
+    public function getId(): int {
+        return $this -> _id;
+    }
+    public function setId($id):void {
+        if (is_string($id) && $id == "à créer") {
+            $this -> _id = $this -> nextId();
+        }else {
+            $this -> _id = $id;
+        }
+    }
+    private function nextId() {
+        $Database = new Database();
+        $reservations = $Database->getAllReservations();
+        $IDs = [];
+        foreach($reservations as $reservation) {
+            $IDs [] = $reservation->getId();
+        }
+        $i = 1;
+        $unique = false;
+        while ($unique === false){
+            if(in_array($i, $IDs)) {
+                $i++;
+            }else{
+                $unique = true;
+            }
+        }
+        return $i;
+    }
+
     /**
      * enregistre sous forme de tableau la reservation
      *
@@ -94,6 +134,8 @@ class Reservation {
             'casques' => $this -> getcasques(),
             'luges' => $this -> getluges(),
             'total' => $this -> gettotal(),
+            'mail' => $this -> getMail(),
+            'id' => $this -> getId(),
         ];
     }
 }

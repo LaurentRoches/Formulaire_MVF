@@ -70,6 +70,27 @@ final class Database{
     }
 
     /**
+     * Récupérer toutes les réservations sous un tableau
+     *
+     * @return  array  un tableau de toutes es réservations
+     */
+    public function getAllReservations() {
+        //lire la BDD:
+        $acces = fopen($this->_ReservationDB, 'r');
+        //on créer notre tableau pour y stocker les valeurs:
+        $reservations = [];
+        //on va lire les lignes de la BDD tant qu'il en existe:
+        while (($reservation = fgetcsv($acces, 1000)) !== FALSE){
+            //on entre l'utilisateur trouvé dans notre tableau:
+            $reservations[] = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8]);
+        }
+        //Fermer la lecture de la BDD
+        fclose($acces);
+        //Récupérer le tableau !:
+        return $reservations;
+    }
+
+    /**
      * Trouver un utilisateur par son mail:
      *
      * @param   string  $mail  mail donné
@@ -100,6 +121,36 @@ final class Database{
     }
 
     /**
+     * Trouver une réservation par son mail:
+     *
+     * @param   string  $mail  mail donné
+     *
+     * @return  bool | string         donne la réservation ou FALSE
+     */
+    public function getReservationByMail($mail) {
+        //lire la BDD:
+        $acces = fopen($this->_ReservationDB, 'r');
+        //on va lire les lignes tant qu'il en existe:
+        while (($reservation = fgetcsv($acces, 1000)) !== FALSE){
+            // Si la réservation a un mail:
+            if($reservation[8] == $mail){
+                //On instancie la réservation
+                $reservation = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8]);
+                //Et on arrete:
+                break;
+            } //Sinon (s'il n'en a pas):
+            else{
+                //On le marque faux:
+                $reservation = FALSE;
+            }
+        }
+        //Fermer la lecture de la BDD
+        fclose($acces);
+        //Récupérer la réservation !:
+        return $reservation;
+    }
+
+    /**
      * Trouver un utilisateur par son id:
      *
      * @param   int  $id  id donné
@@ -127,6 +178,36 @@ final class Database{
         fclose($acces);
         //Récupérer l'utilisateur !:
         return $user;
+    }
+
+    /**
+     * Trouver une réservation par son id:
+     *
+     * @param   int  $id  id donné
+     *
+     * @return  bool | int       donner la réservation ou FALSE
+     */
+    public function getRéservationById($id) {
+        //lire la BDD:
+        $acces = fopen($this->_ReservationDB, 'r');
+        //on va lire les lignes tant qu'il en existe:
+        while (($reservation = fgetcsv($acces, 1000)) !== FALSE){
+            // Si la réservation a un id:
+            if($reservation[8] == $id){
+                //On instancie la réservation
+                $reservation = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8],);
+                //Et on arrete:
+                break;
+            } //Sinon (s'il n'en a pas):
+            else{
+                //On le marque faux:
+                $reservation = FALSE;
+            }
+        }
+        //Fermer la lecture de la BDD
+        fclose($acces);
+        //Récupérer la réservation !:
+        return $reservation;
     }
 
 }

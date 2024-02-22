@@ -7,6 +7,20 @@ final class Database{
     public function __construct(){
         $this-> _DB = __DIR__."../csv/utilisateurs.csv";
     }
+
+    //Sauvegarder utilisateur dans BDD:
+    public function saveUser($user) {
+        //Lire ET écrire la BDD:
+        $acces = fopen($this->_DB, 'ab');
+        //Définit une variable pour savoir si l'écriture à fonctionner
+        //Puis écrit la ligne dans le csv
+        $ecris = fputcsv($acces, $user->getObjectToArray());
+        //Fermer la lecture de la BDD
+        fclose($acces);
+        // Recupère la variable d'écriture:
+        return $ecris;
+    }
+
     //Récupérer tous les utilisateurs sous un tableau:
     public function getAllUtilisateurs() {
         //lire la BDD:
@@ -49,7 +63,7 @@ final class Database{
     }
 
     //Trouver un utilisateur par son id:
-    public function getUtilisateurByMdp($id) {
+    public function getUtilisateurById($id) {
         //lire la BDD:
         $acces = fopen($this->_DB, 'r');
         //on va lire les lignes tant qu'il en existe:
@@ -72,16 +86,4 @@ final class Database{
         return $user;
     }
 
-    //Sauvegarder utilisateur dans BDD:
-    public function saveUser($user) {
-        //Lire ET écrire la BDD:
-        $acces = fopen($this->_DB, 'ab');
-        //Définit une variable pour savoir si l'écriture à fonctionner
-        //Puis écrit la ligne dans le csv
-        $ecris = fputcsv($acces, $user->getObjectToArray());
-        //Fermer la lecture de la BDD
-        fclose($acces);
-        // Recupère la variable d'écriture:
-        return $ecris;
-    }
 }

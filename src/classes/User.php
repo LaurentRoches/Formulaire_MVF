@@ -36,8 +36,8 @@ class User {
         $Database = new Database();
         $utilisateurs = $Database->getAllUtilisateurs();
         $IDs = [];
-        foreach($utilisateurs as $utilisateurs) {
-            $IDs [] = $utilisateurs->getId();
+        foreach($utilisateurs as $utilisateur) {
+            $IDs [] = $utilisateur->getId();
         }
         $i = 1;
         $unique = false;

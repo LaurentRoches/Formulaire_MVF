@@ -85,7 +85,7 @@
 
       <h3>Venez-vous avec des enfants ?</h3>
       <input type="checkbox" name="enfantsOui" id="enfantsOui"><label for="enfantsOui">Oui</label>
-      <input type="checkbox" name="enfantsNon"><label for="enfantsNon">Non</label>
+      <input type="checkbox" name="enfantsNon" id="enfantsNon"><label for="enfantsNon">Non</label>
 
       <!-- Si oui, afficher : -->
       <section id="demonsPresent">

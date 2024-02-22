@@ -15,7 +15,11 @@ function suivant(id) {
 }
 
     //Première section:
-
+let choixJour12 = document.getElementById('choixJour12');
+let choixJour23 = document.getElementById('choixJour23');
+let choixJour1 = document.getElementById('choixJour1');
+let choixJour2 = document.getElementById('choixJour2');
+let choixJour3 = document.getElementById('choixJour3');
 let tarifReduit = document.getElementById('tarifReduit');
 let pass1jour = document.getElementById('pass1jour');
 let pass1jourLabel = pass1jour.previousElementSibling;
@@ -45,6 +49,16 @@ tarifReduit.addEventListener('change', ()=>{
         pass2joursReduitLabel.style.display="block";
         pass3joursReduit.style.display="block";
         pass3joursReduitLabel.style.display="block";
+        pass1jour.checked = false;
+        choixJour1.checked = false;
+        choixJour2.checked = false;
+        choixJour3.checked = false;
+        pass2jours.checked = false;
+        choixJour12.checked=false;
+        choixJour23.checked=false;
+        pass3jours.checked = false;
+        document.getElementById('pass1jourDate').style.display ="none";
+        document.getElementById('pass2joursDate').style.display ="none";
     }else{
         pass1jour.style.display="block";
         pass1jourLabel.style.display="block";
@@ -58,6 +72,16 @@ tarifReduit.addEventListener('change', ()=>{
         pass2joursReduitLabel.style.display="none";
         pass3joursReduit.style.display="none";
         pass3joursReduitLabel.style.display="none";
+        pass1jourReduit.checked = false;
+        choixJour1.checked = false;
+        choixJour2.checked = false;
+        choixJour3.checked = false;
+        pass2joursReduit.checked = false;
+        choixJour12.checked=false;
+        choixJour23.checked=false;
+        pass3joursReduit.checked = false;
+        document.getElementById('pass1jourDate').style.display ="none";
+        document.getElementById('pass2joursDate').style.display ="none";
     }
 })
 
@@ -66,6 +90,9 @@ pass1jour.addEventListener('change', ()=>{
         document.getElementById('pass1jourDate').style.display ="block";
     }else{
         document.getElementById('pass1jourDate').style.display ="none";
+        choixJour1.checked = false;
+        choixJour2.checked = false;
+        choixJour3.checked = false;
     }
 })
 pass1jourReduit.addEventListener('change', ()=>{
@@ -73,6 +100,9 @@ pass1jourReduit.addEventListener('change', ()=>{
         document.getElementById('pass1jourDate').style.display ="block";
     }else{
         document.getElementById('pass1jourDate').style.display ="none";
+        choixJour1.checked = false;
+        choixJour2.checked = false;
+        choixJour3.checked = false;
     }
 })
 pass2jours.addEventListener('change', ()=>{
@@ -80,6 +110,8 @@ pass2jours.addEventListener('change', ()=>{
         document.getElementById('pass2joursDate').style.display ="block";
     }else{
         document.getElementById('pass2joursDate').style.display ="none";
+        choixJour12.checked=false;
+        choixJour23.checked=false;
     }
 })
 pass2joursReduit.addEventListener('change', ()=>{
@@ -87,16 +119,16 @@ pass2joursReduit.addEventListener('change', ()=>{
         document.getElementById('pass2joursDate').style.display ="block";
     }else{
         document.getElementById('pass2joursDate').style.display ="none";
+        choixJour12.checked=false;
+        choixJour23.checked=false;
     }
 })
 
 //Les doubles journées
-let choixJour12 = document.getElementById('choixJour12');
-let choixJour23 = document.getElementById('choixJour23');
 
 choixJour12.addEventListener('change', ()=>{
     if(choixJour12.checked){
-        choixJour23.checked=false;
+        choixJour23.checked = false;
     }
 })
 choixJour23.addEventListener('change', ()=>{
@@ -144,10 +176,18 @@ van3Nuits.addEventListener('change', ()=>{
 
 //Les enfants
 let enfantsOui = document.getElementById('enfantsOui');
+let enfantsNon = document.getElementById('enfantsNon');
 enfantsOui.addEventListener('change', ()=>{
     if(enfantsOui.checked){
         document.getElementById('demonsPresent').style.display ="block";
+        enfantsNon.checked = false;
     }else{
+        document.getElementById('demonsPresent').style.display ="none";
+    }
+})
+enfantsNon.addEventListener('change', ()=>{
+    if (enfantsNon.checked){
+        enfantsOui.checked = false;
         document.getElementById('demonsPresent').style.display ="none";
     }
 })

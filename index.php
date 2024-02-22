@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,20 +14,28 @@
 </head>
 
 <body>
-  <form action="src/traitement.php" id="inscription" method="POST">
-    <fieldset id="reservation">
+
+  <form action="./src/traitement.php" id="inscription" method="POST">
+    <fieldset id="reservation" >
+      <div class="connexion">
+        <h2>Déjà réservé? Connectez-vous! :</h2>
+        <a href="./confirmation.php">Cliquez ici</a>
+      </div>
+
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
       <h3>Réservation(s) en tarif réduit</h3>
-      <input type="checkbox" name="tarifReduit" id="tarifReduit">
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
+      <input type="checkbox" name="tarifReduit" id="tarifReduit">
 
       <h3>Choisissez votre formule :</h3>
-      <input type="checkbox" name="pass1jour" id="pass1jour">
+
       <label for="pass1jour">Pass 1 jour : 40€</label>
-      <input type="checkbox" name="pass1jourReduit" id="pass1jourReduit" style="display:none;">
+      <input type="checkbox" name="pass1jour" id="pass1jour">
+
       <label for="pass1jour" style="display:none;">Pass 1 jour : 25€</label>
+      <input type="checkbox" name="pass1jourReduit" id="pass1jourReduit" style="display:none;">
 
       <!-- Si case cochée, afficher le choix du jour -->
       <section id="pass1jourDate">
@@ -35,10 +47,12 @@
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
-      <input type="checkbox" name="pass2jours" id="pass2jours">
+
       <label for="pass2jours">Pass 2 jours : 70€</label>
-      <input type="checkbox" name="pass2joursReduit" id="pass2joursReduit" style="display:none;">
+      <input type="checkbox" name="pass2jours" id="pass2jours">
+
       <label for="pass2jours" style="display:none;">Pass 2 jours : 50€</label>
+      <input type="checkbox" name="pass2joursReduit" id="pass2joursReduit" style="display:none;">
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate">
@@ -48,10 +62,12 @@
         <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
-      <input type="checkbox" name="pass3jours" id="pass3jours">
+
       <label for="pass3jours">Pass 3 jours : 100€</label>
-      <input type="checkbox" name="pass3joursReduit" id="pass3joursReduit" style="display:none;">
+      <input type="checkbox" name="pass3jours" id="pass3jours">
+
       <label for="pass3jours" style="display:none;">Pass 3 jours : 65€</label>
+      <input type="checkbox" name="pass3joursReduit" id="pass3joursReduit" style="display:none;">
 
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
@@ -81,11 +97,11 @@
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfantsOui"><label for="enfantsOui">Oui</label>
-      <input type="checkbox" name="enfantsNon"><label for="enfantsNon">Non</label>
+      <input type="checkbox" name="enfantsOui" id="enfantsOui"><label for="enfantsOui">Oui</label>
+      <input type="checkbox" name="enfantsNon" id="enfantsNon"><label for="enfantsNon">Non</label>
 
       <!-- Si oui, afficher : -->
-      <section>
+      <section id="demonsPresent">
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
         <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
@@ -112,6 +128,10 @@
       <input type="text" name="telephone" id="telephone" required>
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale" required>
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" required>
+      <label for="password2">Vérifier le Mot de passe :</label>
+      <input type="password" id="password2" name="password2" required>
 
       <input type="submit" name="soumission" class="bouton" value="Réserver">
     </fieldset>

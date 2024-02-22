@@ -1,0 +1,12 @@
+body{
+    background-image: url('./src/medias/fond.jpg');
+    background-size: cover;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    color: yellow;
+    text-shadow: 1px 1px black;
+    text-align: center;
+}
+input{
+    margin-right: 15px;
+}

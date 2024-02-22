@@ -1,13 +1,56 @@
+body{
+  background-color: black;
+}
 section{
     display: none;
 }
-
-fieldset {
- background-image: url('./src/medias/fond.jpg');
- background-size: cover;
-  background-repeat: no-repeat;
+.connexion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+a{
+  text-decoration: none;
   color: yellow;
   text-shadow: 1px 1px black;
-  text-align: center
+  border: 1px solid yellow;
+  padding: 5px;
+  width: fit-content;
+}
+legend{
+  border: 1px solid black;
+  background-color: black;
+}
+fieldset {
+  background-image: url('./src/medias/fond.jpg');
+  background-size: cover;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+fieldset *{
+  margin: 5px 0px;
+}
+label{
+  margin-right: 15px;
+}
+input{
+  margin-bottom: 15px;
 }
 

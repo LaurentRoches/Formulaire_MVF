@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
 </head>
 
 <body>
-  <form action="traitement.php" id="inscription" method="POST">
+  <form action="./src/traitement.php" id="inscription" method="POST">
     <fieldset id="reservation" >
       <div class="connexion">
         <h2>Déjà réservé? Connectez-vous! :</h2>

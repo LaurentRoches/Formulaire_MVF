@@ -1,4 +1,10 @@
 <?php
+session_start();
+$succes = null;
+
+if (isset($_GET['succes']) && $_GET['succes'] === "inscription") {
+  $succes = true;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,7 +16,10 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <?php
+    if ($succes){?>
     <h1>Félicitation pour votre inscription !!!</h1>
+    <?php }?>
     <h2>Vous pouvez maintenant vous connecter:</h2>
     <form action="./src/authentification.php" method="post"></form>
     <label for="mail">Mail :</label>

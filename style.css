@@ -1,6 +1,23 @@
 section{
     display: none;
 }
+.connexion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+a{
+  text-decoration: none;
+  color: yellow;
+  text-shadow: 1px 1px black;
+  border: 1px solid yellow;
+  padding: 5px;
+  width: fit-content;
+}
 legend{
   border: 1px solid black;
   background-color: black;

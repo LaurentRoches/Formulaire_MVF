@@ -1,5 +1,4 @@
 <?php
-require './Database.php';
 
 class User {
     private $_id;
@@ -10,7 +9,7 @@ class User {
     private $_tel;
     private $_adresse;
 
-    public function __construct(string $nom, string $prenom, string $mail, string $mdp, int $tel, string $adresse, int|string $id = "à créer")
+    public function __construct(string $nom, string $prenom, string $mail, string $mdp,  $tel, string $adresse, int|string $id = "à créer")
     {
         $this -> setNom($nom);
         $this -> setPrenom($prenom);
@@ -83,10 +82,10 @@ class User {
         return password_verify($mdp,$this->getMdp());
     }
     // Pour le tel
-    public function getTel(): int {
+    public function getTel() {
         return $this -> _tel;
     }
-    public function setTel (int $tel):void {
+    public function setTel ($tel):void {
         $this -> _tel = $tel;
     }
     // Pour l'adresse

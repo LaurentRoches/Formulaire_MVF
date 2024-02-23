@@ -1,9 +1,8 @@
 <?php
-require './Database.php';
+
 
 class Reservation {
 
-    private $_reduit;
     private $_pass;
     private $_journee;
     private $_nuit;
@@ -14,8 +13,7 @@ class Reservation {
     private $_mail;
     private $_id;
 
-    public function __construct($reduit, $pass, $journee, $nuit, $enfants, $casques, $luges, $total, $mail, $id = "à créer") {
-        $this -> setReduit($reduit);
+    public function __construct($pass, $journee, $nuit, $enfants, $casques, $luges, $total, $mail, $id = "à créer") {
         $this -> setPass($pass);
         $this -> setjournee($journee);
         $this -> setnuit($nuit);
@@ -27,12 +25,6 @@ class Reservation {
         $this -> setId($id);
     }
 
-    public function getReduit() {
-        return $this -> _reduit;
-    }
-    public function setReduit($reduit) {
-        $this -> _reduit = $reduit;
-    }
 
     public function getPass() {
         return $this -> _pass;
@@ -126,7 +118,6 @@ class Reservation {
      */
     public function getObjectToArray(){
         return [
-            'reduit' => $this -> getreduit(),
             'pass' => $this -> getpass(),
             'journee' => $this -> getjournee(),
             'nuit' => $this -> getnuit(),

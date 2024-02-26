@@ -74,7 +74,7 @@ final class Database{
         //on va lire les lignes de la BDD tant qu'il en existe:
         while (($user = fgetcsv($acces, 1000)) !== FALSE){
             //on entre l'utilisateur trouvé dans notre tableau:
-            $utilisateurs[] = new User ($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6],);
+            $utilisateurs[] = new User ($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6], $user[7]);
         }
         //Fermer la lecture de la BDD
         fclose($acces);
@@ -95,7 +95,7 @@ final class Database{
         //on va lire les lignes de la BDD tant qu'il en existe:
         while (($reservation = fgetcsv($acces, 1000)) !== FALSE){
             //on entre l'utilisateur trouvé dans notre tableau:
-            $reservations[] = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8]);
+            $reservations[] = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8], $reservation[9]);
         }
         //Fermer la lecture de la BDD
         fclose($acces);
@@ -108,7 +108,7 @@ final class Database{
      *
      * @param   string  $mail  mail donné
      *
-     * @return  bool | string         donne le user ou False
+     * @return  bool | objet         donne le user ou False
      */
     public function getUtilisateurByMail($mail) {
         //lire la BDD:
@@ -118,7 +118,7 @@ final class Database{
             // Si l'uilisateur a un mail:
             if($user[2] == $mail){
                 //On instancie l'utilisateur
-                $user = new User ($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6],);
+                $user = new User ($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6], $user[7]);
                 //Et on arrete:
                 break;
             } //Sinon (s'il n'en a pas):
@@ -148,7 +148,7 @@ final class Database{
             // Si la réservation a un mail:
             if($reservation[8] == $mail){
                 //On instancie la réservation
-                $reservation = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8]);
+                $reservation = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8], $reservation[9]);
                 //Et on arrete:
                 break;
             } //Sinon (s'il n'en a pas):
@@ -178,7 +178,7 @@ final class Database{
             // Si l'uilisateur a un id:
             if($user[6] == $id){
                 //On instancie l'utilisateur
-                $user = new User ($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6],);
+                $user = new User ($user[0], $user[1], $user[2], $user[3], $user[4], $user[5], $user[6], $user[7]);
                 //Et on arrete:
                 break;
             } //Sinon (s'il n'en a pas):
@@ -206,9 +206,9 @@ final class Database{
         //on va lire les lignes tant qu'il en existe:
         while (($reservation = fgetcsv($acces, 1000)) !== FALSE){
             // Si la réservation a un id:
-            if($reservation[8] == $id){
+            if($reservation[9] == $id){
                 //On instancie la réservation
-                $reservation = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8],);
+                $reservation = new Reservation ($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6], $reservation[7], $reservation[8], $reservation[9]);
                 //Et on arrete:
                 break;
             } //Sinon (s'il n'en a pas):

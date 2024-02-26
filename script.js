@@ -146,6 +146,9 @@ let tente3Nuits = document.getElementById('tente3Nuits');
 
 tente3Nuits.addEventListener('change', ()=>{
     if(tente3Nuits.checked){
+        tenteNuit1.checked = false;
+        tenteNuit2.checked = false;
+        tenteNuit3.checked = false;
         tenteNuit1.disabled = true;
         tenteNuit2.disabled = true;
         tenteNuit3.disabled = true;
@@ -164,6 +167,9 @@ let van3Nuits = document.getElementById('van3Nuits');
 
 van3Nuits.addEventListener('change', ()=>{
     if(van3Nuits.checked){
+        vanNuit1.checked = false;
+        vanNuit2.checked = false;
+        vanNuit3.checked = false;
         vanNuit1.disabled = true;
         vanNuit2.disabled = true;
         vanNuit3.disabled = true;

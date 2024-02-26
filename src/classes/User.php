@@ -8,8 +8,9 @@ class User {
     private $_mdp;
     private $_tel;
     private $_adresse;
+    private $_role;
 
-    public function __construct(string $nom, string $prenom, string $mail, string $mdp,  $tel, string $adresse, int|string $id = "à créer")
+    public function __construct(string $nom, string $prenom, string $mail, string $mdp,  $tel, string $adresse, int|string $id = "à créer", $role = "user")
     {
         $this -> setNom($nom);
         $this -> setPrenom($prenom);
@@ -18,6 +19,22 @@ class User {
         $this -> setTel($tel);
         $this -> setAdresse($adresse);
         $this -> setId($id);
+        $this -> setRole($role);
+    }
+    //Pour le role
+    public function getRole(): string {
+        return $this -> _role;
+    }
+    public function setRole($role): void {
+        $this -> _role = $role;
+    }
+    // Savoir si c'est un admin
+    public function Admin(): bool {
+        if ($this-> getRole() == "admin"){
+            return TRUE;
+        }else{
+            return FALSE;
+        };
     }
     // Pour l'id
     public function getId(): int {
@@ -105,6 +122,7 @@ class User {
             'tel' =>$this -> getTel(),
             'adresse' => $this -> getAdresse(),
             'id' => $this -> getId(),
+            'role' => $this ->getRole(),
         ];
     }
 }

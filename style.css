@@ -1,5 +1,6 @@
 body{
   background-color: black;
+  color: yellow;
 }
 section{
     display: none;
@@ -53,4 +54,14 @@ label{
 input{
   margin-bottom: 15px;
 }
-
+table,
+tr,
+th,
+td {
+  border: 1px solid white;
+  padding: 3px;
+}
+li {
+  list-style:disc;
+  padding: 3px;
+}

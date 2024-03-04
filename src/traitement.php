@@ -18,7 +18,7 @@ if (isset($_POST['nombrePlaces']) && is_numeric($_POST['nombrePlaces']) && !empt
         header('location:../index.php?erreur=ERREUR_NBDERESERVATION');
         exit();
     }
-} 
+}
 
 if (isset($_POST['tarifReduit'])) {
     $tarifReduit = htmlspecialchars($_POST['tarifReduit']);
@@ -26,63 +26,63 @@ if (isset($_POST['tarifReduit'])) {
 
 if (isset($_POST['choixJour1'])) {
     $choixJour1 = htmlspecialchars($_POST['choixJour1']);
-    array_push($journee, 'journée du 01/07');
+    array_push($journee, 'La journée du 01/07');
 }
 
 if (isset($_POST['choixJour2'])) {
     $choixJour2 = htmlspecialchars($_POST['choixJour2']);
-    array_push($journee, 'journée du 02/07');
+    array_push($journee, 'La journée du 02/07');
 }
 
 if (isset($_POST['choixJour3'])) {
     $choixJour3 = htmlspecialchars($_POST['choixJour3']);
-    array_push($journee, 'journée du 03/07');
+    array_push($journee, 'La journée du 03/07');
 }
 
 if (isset($_POST['choixJour12'])) {
     $choixJour12 = htmlspecialchars($_POST['choixJour12']);
-    array_push($journee, 'journées du 01 & 02/07');
+    array_push($journee, 'Les journées du 01 & 02/07');
 }
 
 if (isset($_POST['choixJour23'])) {
     $choixJour23 = htmlspecialchars($_POST['choixJour23']);
-    array_push($journee, 'journée du 02 & 03/07');
+    array_push($journee, 'Les journées du 02 & 03/07');
 }
 
 
 if (isset($_POST['pass1jour'])) {
     $pass1jour = htmlspecialchars($_POST['pass1jour']);
-    array_push($pass, 'pass1jour');
+    array_push($pass, 'Le pass 1 jour');
     $total = ($total +($nombrePlaces * 40 * count($journee)));
 }
 
 if (isset($_POST['pass1jourReduit'])) {
     $pass1jourReduit = htmlspecialchars($_POST['pass1jourReduit']);
-    array_push($pass, 'pass1jourReduit');
+    array_push($pass, 'Le pass 1 jour en tarif réduit');
     $total = ($total + ($nombrePlaces * 25 * count($journee)));
 }
 
 if (isset($_POST['pass2jours'])) {
     $pass2jours = htmlspecialchars($_POST['pass2jours']);
-    array_push($pass, 'pass2jours');
+    array_push($pass, 'Le pass 2 jours');
     $total = ($total + ($nombrePlaces * count($journee) * 70));
 }
 
 if (isset($_POST['pass2joursReduit'])) {
     $pass2joursReduit = htmlspecialchars($_POST['pass2joursReduit']);
-    array_push($pass, 'pass2joursReduit');
+    array_push($pass, 'Le pass 2 jours en tarif réduit');
     $total = ($total + ($nombrePlaces * count($journee) * 50));
 }
 
 if (isset($_POST['pass3jours'])) {
     $pass3jours = htmlspecialchars($_POST['pass3jours']);
-    array_push($pass, 'pass3jours');
+    array_push($pass, 'Le pass3jours');
     $total = ($total + ($nombrePlaces * 100));
 }
 
 if (isset($_POST['pass3joursReduit'])) {
     $pass3joursReduit = htmlspecialchars($_POST['pass3joursReduit']);
-    array_push($pass, 'pass3joursReduit');
+    array_push($pass, 'Le pass 3 jours en tarif réduit');
     $total = ($total + ($nombrePlaces * 65));
 }
 
@@ -207,11 +207,12 @@ if (isset($_POST['password']) && isset($_POST['password2'])) {
     } else {
         header('location:../index.php?erreur=ERREUR_MDP_ABSENT');
         die;
+
     }
 }
 
 
-$reservation = new Reservation (implode(",",$pass), implode(",",$journee), implode(",",$nuit), implode(",",$enfants), $nombreCasquesEnfants, $NombreLugesEte, $total, $email);
+$reservation = new Reservation ($nombrePlaces, implode(",",$pass), implode(",",$journee), implode(",",$nuit), implode(",",$enfants), $nombreCasquesEnfants, $NombreLugesEte, $total, $email);
 $retourReservation = $Database->saveReservation($reservation);
 
 if ($retourReservation) {

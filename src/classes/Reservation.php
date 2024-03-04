@@ -3,6 +3,7 @@
 
 class Reservation {
 
+    private $_nombrePlaces;
     private $_pass;
     private $_journee;
     private $_nuit;
@@ -13,7 +14,8 @@ class Reservation {
     private $_mail;
     private $_id;
 
-    public function __construct($pass, $journee, $nuit, $enfants, $casques, $luges, $total, $mail, $id = "à créer") {
+    public function __construct($nombrePlaces, $pass, $journee, $nuit, $enfants, $casques, $luges, $total, $mail, $id = "à créer") {
+        $this -> setnombrePlaces($nombrePlaces);
         $this -> setPass($pass);
         $this -> setjournee($journee);
         $this -> setnuit($nuit);
@@ -25,6 +27,13 @@ class Reservation {
         $this -> setId($id);
     }
 
+
+    public function getnombrePlaces() {
+        return $this -> _nombrePlaces;
+    }
+    public function setnombrePlaces($nombrePlaces) {
+        $this -> _nombrePlaces = $nombrePlaces;
+    }
 
     public function getPass() {
         return $this -> _pass;
@@ -118,6 +127,7 @@ class Reservation {
      */
     public function getObjectToArray(){
         return [
+            'nombrePlaces'=> $this -> getnombrePlaces(),
             'pass' => $this -> getpass(),
             'journee' => $this -> getjournee(),
             'nuit' => $this -> getnuit(),

@@ -65,3 +65,7 @@ li {
   list-style:disc;
   padding: 3px;
 }
+.erreur{
+  color: red;
+  font-style: italic;
+}

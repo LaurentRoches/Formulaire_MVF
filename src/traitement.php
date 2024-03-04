@@ -1,5 +1,6 @@
 <?php
 session_start();
+require './config.php';
 require './classes/Database.php';
 require './classes/User.php';
 require './classes/Reservation.php';
@@ -15,7 +16,7 @@ $total = 0;
 if (isset($_POST['nombrePlaces']) && is_numeric($_POST['nombrePlaces']) && !empty($_POST['nombrePlaces'])) {
     $nombrePlaces = (int) $_POST['nombrePlaces'];
     if ($nombrePlaces === 0) {
-        header('location:../index.php?erreur=ERREUR_NBDERESERVATION');
+        header('location:../index.php?erreur='.ERREUR_NBDERESERVATION);
         exit();
     }
 }
@@ -150,7 +151,7 @@ if (isset($_POST['nombreCasquesEnfants']) && is_numeric($_POST['nombreCasquesEnf
 } else if (empty($_POST['nombreCasquesEnfants'])) {
     $nombreCasquesEnfants = htmlspecialchars($_POST['nombreCasquesEnfants']);
 } else {
-    header('location:../index.php?erreur=ERREUR_NBCASQUESENFANTS');
+    header('location:../index.php?erreur='.ERREUR_NBCASQUESENFANTS);
     exit();
 }
 
@@ -160,7 +161,7 @@ if (isset($_POST['NombreLugesEte']) && is_numeric($_POST['NombreLugesEte'])) {
 } else if (empty($_POST['NombreLugesEte'])) {
     $NombreLugesEte = htmlspecialchars($_POST['NombreLugesEte']);
 } else {
-    header('location:../index.php?erreur=ERREUR_NBLUGESETE');
+    header('location:../index.php?erreur='.ERREUR_NBLUGESETE);
     exit();
 }
 
@@ -170,7 +171,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $email = htmlspecialchars($_POST['email']);
     } else {
-        header('location:../index.php?erreur=ERREUR_EMAIL');
+        header('location:../index.php?erreur='.ERREUR_EMAIL);
         die;
     }
 }
@@ -179,7 +180,7 @@ if (isset($_POST['telephone']) && is_numeric($_POST['telephone']) && !empty($_PO
     if (strlen($_POST['telephone']) >= 10) {
         $telephone = htmlspecialchars($_POST['telephone']);
     } else {
-        header('location:../index.php?erreur=ERREUR_TELEPHONE');
+        header('location:../index.php?erreur='.ERREUR_TELEPHONE);
         die;
     }
 }
@@ -187,7 +188,7 @@ if (isset($_POST['telephone']) && is_numeric($_POST['telephone']) && !empty($_PO
 if (isset($_POST['adressePostale']) && is_string($_POST['adressePostale']) && !empty($_POST['adressePostale'])) {
     $adressePostale = htmlspecialchars($_POST['adressePostale']);
 } else {
-    header('location:../index.php?erreur=ERREUR_ADRESSE');
+    header('location:../index.php?erreur='.ERREUR_ADRESSE);
     die;
 }
 
@@ -197,15 +198,15 @@ if (isset($_POST['password']) && isset($_POST['password2'])) {
             if (strlen($_POST['password']) >= 8) {
                 $mdp = password_hash($_POST['password'], PASSWORD_DEFAULT);
             } else {
-                header('location:../index.php?erreur=ERREUR_MDP_TAILLE');
+                header('location:../index.php?erreur='.ERREUR_MDP_TAILLE);
                 die;
             }
         } else {
-            header('location:../index.php?erreur=ERREUR_MDP_IDENTIQUE');
+            header('location:../index.php?erreur='.ERREUR_MDP_IDENTIQUE);
             die;
         }
     } else {
-        header('location:../index.php?erreur=ERREUR_MDP_ABSENT');
+        header('location:../index.php?erreur='.ERREUR_MDP_ABSENT);
         die;
 
     }
@@ -223,6 +224,6 @@ if ($retourReservation) {
         die;
     } 
 }else {
-    header('location:../index.php?erreur=ERREUR_ENREGISTREMENT');
+    header('location:../index.php?erreur='.ERREUR_ENREGISTREMENT);
     die;
 }

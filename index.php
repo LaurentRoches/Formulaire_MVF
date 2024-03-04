@@ -1,5 +1,12 @@
 <?php
 session_start();
+$code_erreur= null;
+if (isset($_GET['erreur'])){
+  $code_erreur = (int) $_GET['erreur'];
+  
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +30,20 @@ session_start();
       </div>
 
       <legend>Réservation</legend>
+      <?php 
+      if($code_erreur === 0){
+        ?><div class="erreur">Une erreur est survenue, veuillez ré-éssayer plus tard</div>
+      <?php
+      }
+      ?>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
+      <?php 
+      if($code_erreur === 2){
+        ?><div class="erreur">Veuillez entrer un nombre de réservation</div>
+      <?php
+      }
+      ?>
       <h3>Réservation(s) en tarif réduit</h3>
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
       <input type="checkbox" name="tarifReduit" id="tarifReduit">
@@ -105,6 +124,12 @@ session_start();
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
         <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
+        <?php 
+        if($code_erreur === 3){
+          ?><div class="erreur">Veuillez entrer le nombre de casques souhaité</div>
+        <?php
+        }
+        ?>
         <p>*Dans la limite des stocks disponibles.</p>
       </section>
 
@@ -113,6 +138,12 @@ session_start();
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
 
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
+      <?php 
+      if($code_erreur === 4){
+        ?><div class="erreur">Veuillez entrer le nombre de descentes souhaité</div>
+      <?php
+      }
+      ?>
 
       <button class="bouton" onclick="suivant('coordonnees')">Suivant</button>
     </fieldset>
@@ -124,15 +155,48 @@ session_start();
       <input type="text" name="prenom" id="prenom" required>
       <label for="email">Email :</label>
       <input type="email" name="email" id="email" required>
+      <?php 
+      if($code_erreur === 5){
+        ?><div class="erreur">Veuillez entrer une adresse mail valide</div>
+      <?php
+      }
+      ?>
       <label for="telephone">Téléphone :</label>
       <input type="text" name="telephone" id="telephone" required>
+      <?php 
+      if($code_erreur === 6){
+        ?><div class="erreur">Veuillez entrer un numéro de téléphone valide</div>
+      <?php
+      }
+      ?>
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale" required>
+      <?php 
+      if($code_erreur === 7){
+        ?><div class="erreur">Veuillez entrer votre adresse postale</div>
+      <?php
+      }
+      ?>
       <label for="password">Mot de passe :</label>
       <input type="password" id="password" name="password" required>
+      <?php 
+      if($code_erreur === 8){
+        ?><div class="erreur">Votre mot de passe doit contenir au moins 8 caractères</div>
+      <?php
+      }
+      ?>
       <label for="password2">Vérifier le Mot de passe :</label>
       <input type="password" id="password2" name="password2" required>
-
+      <?php 
+      if($code_erreur === 9){
+        ?><div class="erreur">Vos mots de passes ne sont pas identiques</div>
+      <?php
+      }else if($code_erreur === 10) {
+      ?>
+      <div class="erreur">Veuillez entrer un mot de passe</div>
+      <?php
+      }
+      ?>
       <input type="submit" name="soumission" class="bouton" value="Réserver">
     </fieldset>
   </form>

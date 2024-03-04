@@ -30,6 +30,12 @@ $reservations = $BDD->getAllReservations();
 </head>
 <body>
     <fieldset>
+        <h1>Bonjour <?= $user->getNom()?> <?=$user->getPrenom()?> !</h1>
+        <div>
+        <?php if (isset($_SESSION['connecté'])) { ?>
+            <a href="./deconnexion.php">Déconnexion</a>
+        <?php } ?>
+        </div>
         <div>
             <table>
                 <caption><h1>Liste des utilisateurs</h1></caption>

@@ -30,6 +30,11 @@ $journees = $reservation->getjournee();
     <fieldset>
         <h1>Bonjour <?= $user->getNom()?> <?=$user->getPrenom()?> !</h1>
         <div>
+        <?php if (isset($_SESSION['connecté'])) { ?>
+            <a href="./deconnexion.php">Déconnexion</a>
+        <?php } ?>
+        </div>
+        <div>
             <?php 
             if(isset($_SESSION['reservation'])){?>
             <h2>Vous avez réservé:</h2>

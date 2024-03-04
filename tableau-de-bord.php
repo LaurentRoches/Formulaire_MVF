@@ -15,6 +15,7 @@ if (isset($_SESSION['reservation'])){
 }else{
     $reservation = "Vous n'avez pas de réservation";
 }
+
 $nuits = $reservation->getnuit();
 $journees = $reservation->getjournee();
 ?>

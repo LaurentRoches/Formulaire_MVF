@@ -24,7 +24,7 @@ if (isset($_GET['erreur'])){
   <form action="./src/traitement.php" id="inscription" method="POST">
     <fieldset id="reservation" >
       <div class="connexion">
-        <h2>Déjà réservé? Connectez-vous! :</h2>
+        <h3>Déjà réservé? Connectez-vous! :</h3>
         <a href="./confirmation.php">Cliquez ici</a>
       </div>
 

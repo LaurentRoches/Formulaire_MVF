@@ -191,19 +191,22 @@ if (isset($_POST['adressePostale']) && is_string($_POST['adressePostale']) && !e
     die;
 }
 
-if(isset($_POST['password']) && isset($_POST['password2'])){
-    if (!empty($_POST['password']) && !empty($_POST['password2'])){
-        if ($_POST['password'] === $_POST['password2']){
-            if (strlen($_POST['password'])>= 8){
-            $mdp = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            }else {
-                header ('location:../index.php?erreur=ERREUR_MDP_TAILLE');
+if (isset($_POST['password']) && isset($_POST['password2'])) {
+    if (!empty($_POST['password']) && !empty($_POST['password2'])) {
+        if ($_POST['password'] === $_POST['password2']) {
+            if (strlen($_POST['password']) >= 8) {
+                $mdp = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            } else {
+                header('location:../index.php?erreur=ERREUR_MDP_TAILLE');
                 die;
             }
-        }else {
-            header ('location:../index.php?erreur=ERREUR_MDP_IDENTIQUE');
+        } else {
+            header('location:../index.php?erreur=ERREUR_MDP_IDENTIQUE');
             die;
         }
+    } else {
+        header('location:../index.php?erreur=ERREUR_MDP_ABSENT');
+        die;
     }
 }
 

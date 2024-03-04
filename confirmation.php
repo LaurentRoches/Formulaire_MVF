@@ -5,6 +5,11 @@ $succes = null;
 if (isset($_GET['succes']) && $_GET['succes'] === "inscription") {
   $succes = true;
 }
+$code_erreur = null;
+if (isset($_GET['erreur'])){
+  $code_erreur = (int) $_GET['erreur'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,10 +17,11 @@ if (isset($_GET['succes']) && $_GET['succes'] === "inscription") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="./styleConfirmation.css" >
+    <link rel="stylesheet" href="./style.css" >
     <script src="./script.js" defer></script>
 </head>
 <body>
+  <fieldset>
     <?php
     if ($succes){?>
     <h1>Félicitation pour votre inscription !!!</h1>
@@ -28,5 +34,12 @@ if (isset($_GET['succes']) && $_GET['succes'] === "inscription") {
       <input type="password" id="password" name="password" required>
       <input type="submit" name="submit" value="Se connecter">
     </form>
+    <?php 
+      if($code_erreur === 1){
+        ?><div class="erreur">Vos identifiants sont incorrects</div>
+      <?php
+      }
+      ?>
+  </fieldset>
 </body>
 </html>

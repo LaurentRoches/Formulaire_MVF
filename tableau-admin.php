@@ -18,6 +18,7 @@ if ($user->Admin() == FALSE){
 $BDD = new Database();
 $utilisateurs = $BDD->getAllUtilisateurs();
 $reservations = $BDD->getAllReservations();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

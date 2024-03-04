@@ -3,7 +3,6 @@ session_start();
 $code_erreur= null;
 if (isset($_GET['erreur'])){
   $code_erreur = (int) $_GET['erreur'];
-  
 }
 
 

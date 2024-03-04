@@ -1,5 +1,6 @@
 body{
-  background-color: black;
+  /* background-color: black; */
+  background: linear-gradient(0.35 turn,rgb(0, 0, 0),#4C48B7);
   color: yellow;
 }
 section{

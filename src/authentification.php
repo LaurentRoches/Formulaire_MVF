@@ -1,5 +1,6 @@
 <?php
 session_start();
+require './config.php';
 require './classes/Database.php';
 require './classes/User.php';
 require './classes/Reservation.php';
@@ -34,10 +35,10 @@ if (isset($_POST['mail']) && !empty($_POST['mail']) && isset($_POST['password'])
                 die;
             }
         }
-    }
-} else {
+    } else {
     //mettre une erreur générale
-    header('location: ../confirmation.php?erreur=ERREUR_IDENTIFIANTS');
+    header('location: ../confirmation.php?erreur='.ERREUR_IDENTIFIANTS);
+    }
 }
 
 
